@@ -1,16 +1,24 @@
 'use client'
 
-import Image from "next/image";
+import { useState } from 'react';
+
+import ProdPanel from './prod-panel';
 
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 
-function doClick() {
-  alert("qwer")
-}
+
 
 export default function Home() {
+
+  let [stockNm, setStockNm] = useState();
+  let [queryObj, setQueryObj] = useState();
+
+  function doClick() {
+    setQueryObj({"stockNm" : stockNm});
+  }
+
   return (
     <div className="">
       <div className="text-center my-10 py-10 bg-red-200 lg:text-left lg:m-10 lg:p-10">
@@ -20,16 +28,19 @@ export default function Home() {
       </div>
       <Paper className="m-4 p-12 bg-red-200 flex flex-wrap flex-col lg:flex-row gap-3 lg:gap-12">
          <TextField
-          id="trgtLwdgCd" label="목적물주소 법정동코드" variant="filled"
+          id="stockNm" label="종목명" variant="filled"
           inputProps={{min: 0, maxLength:10 }}
           onChange={(e) => {
-            setTrgtLwdgCd(e.target.value);
+            setStockNm(e.target.value);
           }}
         />
       </Paper>
       <div className="m-8 lg:mx-20">
         <Button variant="contained" size="large" onClick={doClick}>조회</Button>
       </div>
+      <ProdPanel queryObj={queryObj} />
    </div>
   )
 }
+
+
