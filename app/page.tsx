@@ -1,22 +1,20 @@
-'use client'
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import ProdPanel from './prod-panel';
+import ProdPanel from "./prod-panel";
 
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
-import TextField from '@mui/material/TextField';
-
-
+import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
+import TextField from "@mui/material/TextField";
 
 export default function Home() {
 
-  let [stockNm, setStockNm] = useState();
   let [queryObj, setQueryObj] = useState();
+  let [stockNm, setStockNm] = useState();
 
   function doClick() {
-    setQueryObj({"stockNm" : stockNm});
+    setQueryObj({ stockNm: stockNm });
   }
 
   return (
@@ -27,20 +25,22 @@ export default function Home() {
         </blockquote>
       </div>
       <Paper className="m-4 p-12 bg-red-200 flex flex-wrap flex-col lg:flex-row gap-3 lg:gap-12">
-         <TextField
-          id="stockNm" label="종목명" variant="filled"
-          inputProps={{min: 0, maxLength:10 }}
+        <TextField
+          id="stockNm"
+          label="종목명"
+          variant="filled"
+          inputProps={{ min: 0, maxLength: 10 }}
           onChange={(e) => {
             setStockNm(e.target.value);
           }}
         />
       </Paper>
       <div className="m-8 lg:mx-20">
-        <Button variant="contained" size="large" onClick={doClick}>조회</Button>
+        <Button variant="contained" size="large" onClick={doClick}>
+          조회
+        </Button>
       </div>
-      <ProdPanel queryObj={queryObj} />
-   </div>
-  )
+      {queryObj ? <ProdPanel queryObj={queryObj} /> : ""}
+    </div>
+  );
 }
-
-
