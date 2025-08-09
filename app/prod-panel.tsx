@@ -29,7 +29,10 @@ export default function ProdPanel({ queryObj }) {
           >
             <div className="text-slate-800 text-2xl mt-5 mb-2">{x.종목명}</div>
             <div className="text-slate-900">현재가: {x.현재가}</div>
+            <div className="text-slate-900">전일비: {x.전일비}</div>
             <div className="text-slate-900">등락률: {x.등락률}</div>
+	    <div className="text-slate-900">시가총액: {x.시가총액}</div>
+	    <div className="text-slate-900">PER: {x.PER}</div>
           </Paper>
         ))}
       </div>
