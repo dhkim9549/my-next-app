@@ -9,7 +9,7 @@ export default function ProdPanel({ queryObj }) {
 
   useEffect(() => {
     console.log({ queryObj });
-    setRcmdItems([]);
+    setRcmdItems();
     getStockInfo(queryObj).then((x) => {
       console.log({ x });
       setRcmdItems(x);
@@ -18,11 +18,13 @@ export default function ProdPanel({ queryObj }) {
 
   return (
     <div>
-      {rcmdItems && (
-        <div className="m-4 p-4">{rcmdItems.length} 건이 조회되었습니다.</div>
-      )}
+      <div className="m-4 p-4">
+        {rcmdItems == null
+          ? "조회중입니다..."
+          : rcmdItems?.length + " 건이 조회되었습니다."}
+      </div>
       <div className="m-4 flex flex-wrap gap-3">
-        {rcmdItems.map((x) => (
+        {rcmdItems?.map((x) => (
           <Paper
             className="w-full lg:w-96 bg-white p-4 flex flex-col gap-2"
             key={x.종목명}
@@ -31,8 +33,8 @@ export default function ProdPanel({ queryObj }) {
             <div className="text-slate-900">현재가: {x.현재가}</div>
             <div className="text-slate-900">전일비: {x.전일비}</div>
             <div className="text-slate-900">등락률: {x.등락률}</div>
-	    <div className="text-slate-900">시가총액: {x.시가총액}</div>
-	    <div className="text-slate-900">PER: {x.PER}</div>
+            <div className="text-slate-900">시가총액: {x.시가총액}</div>
+            <div className="text-slate-900">PER: {x.PER}</div>
           </Paper>
         ))}
       </div>
