@@ -1,7 +1,5 @@
 "use server"
 
-import { tabletojson } from "tabletojson";
-
 export async function getRentRate(query) {
 
   console.info("getRentRate() start...");
