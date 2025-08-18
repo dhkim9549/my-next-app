@@ -1,7 +1,6 @@
-"use server"
+"use server";
 
 export async function getRentRate(query) {
-
   console.info("getRentRate() start...");
   console.info({ query });
 
@@ -15,14 +14,12 @@ export async function getRentRate(query) {
 let apiUrl = "http://24.144.81.34:3001/api/get-loan-rate";
 
 async function main(query) {
-
   console.info("main() start...");
   console.info({ query });
 
-  let res = await fetch(apiUrl
-    + "?bnkNm=" + query,
-    { next: { revalidate: 600 } }
-  );
+  let res = await fetch(apiUrl + "?bnkNm=" + query, {
+    next: { revalidate: 600 },
+  });
 
   let table = await res.json();
   console.info(Object.prototype.toString.call(table));
