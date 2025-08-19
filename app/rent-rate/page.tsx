@@ -21,7 +21,7 @@ export default function Home() {
     <div className="">
       <div className="text-center my-10 py-10 bg-red-200 lg:text-left lg:m-10 lg:p-10">
         <blockquote className="text-2xl font-bold italic text-slate-900">
-          Fail Fast App
+          Rent Rate
         </blockquote>
       </div>
       <Paper className="m-4 p-12 bg-red-200 flex flex-wrap flex-col lg:flex-row gap-3 lg:gap-12">
