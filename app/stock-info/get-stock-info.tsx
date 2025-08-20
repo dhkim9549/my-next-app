@@ -17,7 +17,7 @@ export async function getStockInfo(query) {
   return resData;
 }
 
-let apiUrl = "http://24.144.81.34:3001/api/get-stock-info";
+let apiUrl = "http://localhost:3001/api/get-stock-info";
 
 async function main(query) {
 

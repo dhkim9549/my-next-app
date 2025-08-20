@@ -11,7 +11,7 @@ export async function getRentRate(query) {
   return resData;
 }
 
-let apiUrl = "http://24.144.81.34:3001/api/get-loan-rate";
+let apiUrl = "http://localhost:3001/api/get-loan-rate";
 
 async function main(query) {
   console.info("main() start...");
