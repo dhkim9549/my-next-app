@@ -3,10 +3,9 @@
  *
  */
 
-"use server"
+"use server";
 
 export async function getStockInfo(query) {
-
   console.info("getStockInfo() start...");
   console.info({ query });
 
@@ -17,10 +16,12 @@ export async function getStockInfo(query) {
   return resData;
 }
 
-let apiUrl = "http://localhost:3001/api/get-stock-info";
+let apiUrl =
+  (process.env.API_SERVER_URL || "http://localhost:3001") +
+  "/api/get-stock-info";
+console.log({ apiUrl });
 
 async function main(query) {
-
   console.info("main() start...");
   console.info({ query });
 
